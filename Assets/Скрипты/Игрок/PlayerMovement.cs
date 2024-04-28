@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = isWork ? Input.GetAxis("Horizontal") : directorHorizontal;
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
- 
+
     void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, layerGround);
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         directorHorizontal = 0.56f;
     }
 
-    public void DirectorStopRun ()
+    public void DirectorStopRun()
     {
         directorHorizontal = 0;
     }
