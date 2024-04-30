@@ -73,7 +73,7 @@ public class TimelineScriptHandler : MonoBehaviour
     public void Start_Start()
     {
         // if (TimelineDataTransfer.LeftHouse == true)
-        if (true)
+        if (TimelineDataTransfer.LeftHouse == true)
         {
             timeline.menuButtons.SetBool("leftHouse", true);
             timeline.PlayEternalCutscene(startFromHouse);
