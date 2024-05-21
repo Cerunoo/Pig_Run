@@ -8,20 +8,31 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Text nameText;
 
-    public Animator boxAnim;
-    public Animator startAnim;
+    public float typeDelay;
+
+    Animator boxAnim;
 
     Queue<string> sentences;
+    bool isTyping;
 
     void Start()
     {
+        boxAnim = gameObject.GetComponent<Animator>();
+
         sentences = new Queue<string>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+        {
+            DisplayNextSentence();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        boxAnim.SetBool("boxOpen", true);
-        startAnim.SetBool("startOpen", false);
+        boxAnim.SetBool("show", true);
 
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -47,16 +58,26 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        isTyping = true;
+
         dialogueText.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        foreach (char letter in sentence.ToCharArray())
         {
+            if (Input.GetKeyDown(KeyCode.Space) && dialogueText.text.Length > 0)
+            {
+                dialogueText.text = sentence;
+                break;
+            }
+
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(typeDelay);
         }
+
+        isTyping = false;
     }
 
     public void EndDialogue()
     {
-        boxAnim.SetBool("boxOpen", false);
+        boxAnim.SetBool("show", false);
     }
 }

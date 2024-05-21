@@ -129,12 +129,12 @@ public class TimelineScriptHandler : MonoBehaviour
 
     void Start_OnEnable()
     {
-        enterEvent.KeycodeEventPressed += Start_PlayerEnter;
+        enterEvent.keyPressed += Start_PlayerEnter;
     }
 
     void Start_OnDisable()
     {
-        enterEvent.KeycodeEventPressed -= Start_PlayerEnter;
+        enterEvent.keyPressed -= Start_PlayerEnter;
     }
 
 
@@ -181,11 +181,11 @@ public class TimelineScriptHandler : MonoBehaviour
 
     void HouseTransition_OnEnable()
     {
-        exitEvent.KeycodeEventPressed += HouseTransition_LoadScene;
+        exitEvent.keyPressed += HouseTransition_LoadScene;
     }
 
     void HouseTransition_OnDisable()
     {
-        exitEvent.KeycodeEventPressed -= HouseTransition_LoadScene;
+        exitEvent.keyPressed -= HouseTransition_LoadScene;
     }
 }

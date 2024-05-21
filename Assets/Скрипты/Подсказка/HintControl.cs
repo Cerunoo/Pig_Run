@@ -7,8 +7,9 @@ public class HintControl : MonoBehaviour
     public KeyCode keycodeEvent;
     public Animator anim;
 
-    public event Action KeycodeEventPressed;
-    bool isEventStarted;
+    public event Action keyPressed;
+    public event Action triggerEnter;
+    public event Action triggerExit;
 
     public Image blackoutPressed;
     public float fillRatePressed;
@@ -20,6 +21,8 @@ public class HintControl : MonoBehaviour
     {
         if (other.tag == "Player" && isWork)
         {
+            triggerEnter?.Invoke();
+
             anim.gameObject.SetActive(true);
             anim.SetBool("show", true);
         }
@@ -27,7 +30,9 @@ public class HintControl : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && Input.GetKey(keycodeEvent) && !isEventStarted && isWork)
+        bool isShow = (anim.GetCurrentAnimatorStateInfo(0).IsName("Show") || anim.GetCurrentAnimatorStateInfo(0).IsName("Hide")) ? (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) ? true : false : false;
+
+        if (other.tag == "Player" && Input.GetKey(keycodeEvent) && isWork && !isShow)
         {
             anim.SetBool("pressed", true);
             if (fillPressed + fillRatePressed < 100)
@@ -39,12 +44,12 @@ public class HintControl : MonoBehaviour
                 fillPressed = 100;
             }
         }
-        if (!Input.GetKey(keycodeEvent) && !isEventStarted && isWork)
+        if (other.tag == "Player" && !Input.GetKey(keycodeEvent) && isWork && !isShow)
         {
             anim.SetBool("pressed", false);
             if (fillPressed - (fillRatePressed * 1.5f) > 0)
             {
-                fillPressed -= fillRatePressed * 1.5f;
+                fillPressed -= fillRatePressed * 2f;
             }
             else
             {
@@ -54,15 +59,14 @@ public class HintControl : MonoBehaviour
 
         blackoutPressed.fillAmount = fillPressed / 100;
         float hintSize = 1 - fillPressed / 650;
-        anim.gameObject.GetComponent<RectTransform>().localScale = new Vector2(hintSize, hintSize);
+        anim.gameObject.GetComponent<RectTransform>().localScale = new Vector2(hintSize * Mathf.Sign(anim.gameObject.GetComponent<RectTransform>().localScale.x), hintSize);
 
-        if (fillPressed >= 100 && !isEventStarted && isWork)
+        if (fillPressed >= 100 && isWork)
         {
             anim.SetBool("show", false);
             anim.SetBool("pressed", false);
 
-            isEventStarted = true;
-            KeycodeEventPressed?.Invoke();
+            keyPressed?.Invoke();
         }
     }
 
@@ -70,6 +74,8 @@ public class HintControl : MonoBehaviour
     {
         if (other.tag == "Player" && isWork)
         {
+            triggerExit?.Invoke();
+
             anim.SetBool("show", false);
             anim.SetBool("pressed", false);
         }
