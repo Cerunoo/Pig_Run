@@ -80,10 +80,10 @@ public class TimelineScriptHandler : MonoBehaviour
         }
     }
 
-    public void Start_LoadScene()
+    public void Start_StartQuestForest(PlayableAsset tmQuestForest)
     {
         animStartButton.SetBool("show", false);
-        StartCoroutine(FindObjectOfType<AsyncLoading>().LoadAsync(2));
+        timeline.PlayEternalCutscene(tmQuestForest);
     }
 
     public void Start_PlayerExit()

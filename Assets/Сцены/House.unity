@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 76849990}
   - component: {fileID: 76849992}
   - component: {fileID: 76849991}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: checkGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,11 +774,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 128
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 1
-  m_SurfaceArc: 120
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
@@ -2451,11 +2451,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 128
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 1
-  m_SurfaceArc: 120
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
@@ -3814,11 +3814,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 128
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 1
-  m_SurfaceArc: 120
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
@@ -4357,7 +4357,7 @@ GameObject:
   - component: {fileID: 745593621}
   - component: {fileID: 745593620}
   - component: {fileID: 745593622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u041B\u0435\u0432. \u043D\u043E\u0433\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5527,11 +5527,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 128
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 1
-  m_SurfaceArc: 120
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
@@ -5736,7 +5736,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -223.59103, y: 75.46857}
+  m_Offset: {x: -223.59103, y: 7.4056015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5747,7 +5747,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 593.1751, y: 550.6244}
+  m_Size: {x: 593.1751, y: 414.49847}
   m_EdgeRadius: 0
 --- !u!114 &881867050
 MonoBehaviour:
@@ -6181,7 +6181,7 @@ GameObject:
   - component: {fileID: 985354443}
   - component: {fileID: 985354442}
   - component: {fileID: 985354444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u041F\u0440\u0430\u0432. \u043D\u043E\u0433\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7296,11 +7296,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 128
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 1
-  m_SurfaceArc: 120
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
